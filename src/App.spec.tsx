@@ -2,6 +2,8 @@
 import { describe, it, afterEach, expect } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+// toBeIntheDocument 등 not a function뜨면 jest-dom import하면 사용 가능함...
+import '@testing-library/jest-dom';
 
 import App from './App';
 
@@ -26,7 +28,7 @@ describe('App.tsx', () => {
     await userEvent.click(increaseButtonElement);
     await userEvent.click(increaseButtonElement);
 
-    expect(countElement).toBeInTheDocument();
+    expect(countElement).toHaveTextContent('3');
   });
 
   it('감소버튼을 클릭하면 숫자가 내려가요', async () => {
@@ -38,7 +40,7 @@ describe('App.tsx', () => {
     await userEvent.click(decreaseButtonElement);
     await userEvent.click(decreaseButtonElement);
 
-    expect(countElement).toBeInTheDocument('-2');
+    expect(countElement).toHaveTextContent('-2');
   });
 
   it('방문 후 잠시 뒤 인사말이 보여져요', async () => {
@@ -46,6 +48,6 @@ describe('App.tsx', () => {
 
     const greetElement = await screen.findByTestId('greet');
 
-    expect(greetElement).toBeInTheDocument('hello TDD');
+    expect(greetElement).toHaveTextContent('hello TDD');
   });
 });
