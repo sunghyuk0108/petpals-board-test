@@ -13,6 +13,8 @@ function App() {
     }, 100);
   }, []);
 
+  console.log('test');
+
   return (
     <div className="card">
       <div>{count}</div>
