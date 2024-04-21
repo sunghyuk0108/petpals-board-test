@@ -17,9 +17,13 @@ module.exports = {
     'vite.config.js',
     'vitest.setup.js',
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true, // JSX 문법을 사용할 수 있도록 설정합니다.
+    },
   },
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh', 'prettier'],
