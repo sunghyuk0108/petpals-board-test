@@ -14,7 +14,7 @@ function App() {
   }, []);
 
   console.log('test');
-
+  console.log('test2');
   return (
     <div className="card">
       <div>{count}</div>
